@@ -1,0 +1,6 @@
+{
+  "name": "Isuzu Fleet Inspection & Damage Tracker",
+  "description": "An interactive digital fleet management tool to complete and print BASIX Vehicle Inspection EI-008 forms (daily/weekly) and visual Isuzu KB250 damage reports, with high-fidelity PDF exporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
