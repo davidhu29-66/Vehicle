@@ -88,7 +88,7 @@ export default function SignaturePad({ value, onChange, label, height = 120 }: S
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    onChange(canvas.toDataURL('image/png'));
+    onChange(canvas.toDataURL('image/jpg', 0.4));
   }, [onChange]);
 
   const clear = () => {
@@ -116,8 +116,8 @@ export default function SignaturePad({ value, onChange, label, height = 120 }: S
         )}
         <canvas
           ref={canvasRef}
-          width={600}
-          height={height * 2}
+          width={400}
+          height={height}
           className="w-full h-full touch-none cursor-crosshair"
           onPointerDown={startDraw}
           onPointerMove={draw}
