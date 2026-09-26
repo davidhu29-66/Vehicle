@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { InspectionRecord, CheckStatus, DailyCheckRow, DamagePointState, WeeklyCheckRow, FireExtinguisherCheckRow } from '../types/inspection';
 import { getVehicles, getDrivers } from '../utils/storage';
 import IsuzuDiagram from './IsuzuDiagram';
+import SignaturePad from './SignaturePad';
 import { Shield, Check, AlertTriangle, Calendar, Clock, User, Eye, Save, Plus, ArrowLeft, ClipboardList, PenTool, CheckCircle, AlertOctagon, Flame } from 'lucide-react';
 
 interface InspectionFormProps {
@@ -464,17 +465,12 @@ export default function InspectionForm({ record, onSave, onCancel }: InspectionF
                 </div>
               </div>
               <div>
-                <label className="text-[10px] font-extrabold text-slate-500 block uppercase mb-1">Driver Initials / Signature</label>
-                <div className="relative">
-                  <User className="absolute left-2.5 top-2.5 w-4 h-4 text-slate-400" />
-                  <input
-                    type="text"
-                    placeholder="Driver Initial"
-                    value={formData.daily[activeDay].signature}
-                    onChange={(e) => handleDailyMetaChange(activeDay, 'signature', e.target.value)}
-                    className="w-full text-xs pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-1 focus:ring-[#1E3A8A] outline-none text-slate-700"
-                  />
-                </div>
+                <SignaturePad
+                  label="Driver Signature"
+                  value={formData.daily[activeDay].signature}
+                  onChange={(val) => handleDailyMetaChange(activeDay, 'signature', val)}
+                  height={100}
+                />
               </div>
             </div>
 
@@ -594,14 +590,12 @@ export default function InspectionForm({ record, onSave, onCancel }: InspectionF
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-100 grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-[10px] font-extrabold text-slate-500 block uppercase mb-1">Weekly Signature</label>
-                <input
-                  type="text"
-                  placeholder="Driver's Signature"
+              <div className="col-span-2 sm:col-span-1">
+                <SignaturePad
+                  label="Weekly Signature"
                   value={formData.weeklySignature}
-                  onChange={(e) => setFormData({ ...formData, weeklySignature: e.target.value })}
-                  className="w-full text-xs px-2.5 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-[#1E3A8A] outline-none"
+                  onChange={(val) => setFormData({ ...formData, weeklySignature: val })}
+                  height={100}
                 />
               </div>
               <div>
@@ -668,14 +662,12 @@ export default function InspectionForm({ record, onSave, onCancel }: InspectionF
                   className="w-full text-xs px-2.5 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-[#1E3A8A] outline-none"
                 />
               </div>
-              <div>
-                <label className="text-[10px] font-extrabold text-slate-500 block uppercase mb-1">Manager Signature</label>
-                <input
-                  type="text"
-                  placeholder="Signature"
+             <div>
+                <SignaturePad
+                  label="Manager Signature"
                   value={formData.crossCheckedSignature}
-                  onChange={(e) => setFormData({ ...formData, crossCheckedSignature: e.target.value })}
-                  className="w-full text-xs px-2.5 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-[#1E3A8A] outline-none"
+                  onChange={(val) => setFormData({ ...formData, crossCheckedSignature: val })}
+                  height={100}
                 />
               </div>
               <div>
