@@ -88,7 +88,7 @@ export default function SignaturePad({ value, onChange, label, height = 120 }: S
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    onChange(canvas.toDataURL('image/jpg', 0.4));
+    onChange(canvas.toDataURL('image/jpeg', 0.4));
   }, [onChange]);
 
   const clear = () => {
