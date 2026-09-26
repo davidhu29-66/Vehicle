@@ -88,7 +88,16 @@ export default function SignaturePad({ value, onChange, label, height = 120 }: S
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    onChange(canvas.toDataURL('image/jpeg', 0.4));
+
+    // JPEG doesn't support transparency — flatten onto white first
+    const flat = document.createElement('canvas');
+    flat.width = canvas.width;
+    flat.height = canvas.height;
+    const fctx = flat.getContext('2d')!;
+    fctx.fillStyle = '#ffffff';
+    fctx.fillRect(0, 0, flat.width, flat.height);
+    fctx.drawImage(canvas, 0, 0);
+    onChange(flat.toDataURL('image/jpeg', 0.4));
   }, [onChange]);
 
   const clear = () => {
