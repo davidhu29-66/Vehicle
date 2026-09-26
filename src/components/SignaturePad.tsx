@@ -1,3 +1,8 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 interface SignaturePadProps {
@@ -85,6 +90,7 @@ export default function SignaturePad({ value, onChange, label, height = 120 }: S
     if (!isDrawing.current) return;
     isDrawing.current = false;
     lastPos.current = null;
+    if (isEmpty) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;

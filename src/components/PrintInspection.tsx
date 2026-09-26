@@ -314,10 +314,10 @@ export default function PrintInspection({ record, onClose }: PrintInspectionProp
               <tr className="border-t border-black text-center font-semibold">
                 <td className="border-r border-black p-1.5 text-left font-bold bg-slate-50">Signature</td>
                 {DAYS.map((day) => (
-                  <td key={day} className="border-r last:border-r-0 border-black p-1 text-[8px] font-mono">
+                  <td key={day} className="border-r last:border-r-0 border-black p-1">
                     {record.daily[day]?.signature
-  ? <img src={record.daily[day].signature} alt="sig" className="h-6 w-full object-contain" />
-  : <span className="text-[8px] font-mono">—</span>}
+                      ? <img src={record.daily[day].signature} alt="sig" className="h-6 w-full object-contain" />
+                      : <span className="text-[8px] font-mono">—</span>}
                   </td>
                 ))}
               </tr>
@@ -384,8 +384,8 @@ export default function PrintInspection({ record, onClose }: PrintInspectionProp
                 <div>
                   <span className="block font-bold">Signature</span>
                   {record.weeklySignature
-  ? <img src={record.weeklySignature} alt="sig" className="h-8 w-full object-contain border-b border-slate-400 py-1" />
-  : <span className="block border-b border-slate-400 font-mono py-1">—</span>
+                    ? <img src={record.weeklySignature} alt="sig" className="h-8 w-full object-contain border-b border-slate-400 py-1" />
+                    : <span className="block border-b border-slate-400 font-mono py-1">—</span>}
                 </div>
                 <div>
                   <span className="block font-bold">Date</span>
@@ -404,8 +404,8 @@ export default function PrintInspection({ record, onClose }: PrintInspectionProp
             <div className="flex-1 text-center">
               <span className="font-bold">Signature:</span>{' '}
               {record.crossCheckedSignature
-  ? <img src={record.crossCheckedSignature} alt="sig" className="inline-block h-8 ml-1 object-contain" />
-  : <span className="underline ml-1 font-mono">—</span>
+                ? <img src={record.crossCheckedSignature} alt="sig" className="inline-block h-8 ml-1 object-contain" />
+                : <span className="underline ml-1 font-mono">—</span>}
             </div>
             <div className="flex-1 text-right">
               <span className="font-bold">Date:</span>{' '}
