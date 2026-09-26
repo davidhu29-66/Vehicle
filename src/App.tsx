@@ -106,8 +106,8 @@ export default function App() {
                   MC
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[10px] font-extrabold block truncate leading-none">Marcus Cole</span>
-                  <span className="text-[8px] text-slate-400 block mt-1 tracking-wider uppercase">Fleet Manager</span>
+                  <span className="text-[10px] font-extrabold block truncate leading-none">David Hughes</span>
+                  <span className="text-[8px] text-slate-400 block mt-1 tracking-wider uppercase">Vehicle Driver</span>
                 </div>
               </div>
             </div>
